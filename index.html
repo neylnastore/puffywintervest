@@ -754,10 +754,10 @@
 
         function showPopup() {
             const popup = document.getElementById('popup');
-            const randomCustomer = customers[Math.floor(Math.random() * customers.length)];
+            const Customer = customers[Math.floor(Math.random() * customers.length)];
             
-            document.getElementById('popup-name').textContent = randomCustomer.name;
-            document.getElementById('popup-avatar').src = randomCustomer.avatar;
+            document.getElementById('popup-name').textContent = Customer.name;
+            document.getElementById('popup-avatar').src = Customer.avatar;
             
             popup.classList.add('show');
             
