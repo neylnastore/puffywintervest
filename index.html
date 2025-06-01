@@ -837,13 +837,82 @@
             }
         }
 
-        /* High DPI screens */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .hero-image img,
-            .gallery-item img,
-            .popup-avatar {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
+        /* Scroll Hint Animation */
+        .scroll-hint {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: linear-gradient(135deg, rgba(42,82,152,0.95), rgba(30,60,114,0.95));
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 15px 35px rgba(42,82,152,0.4);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .scroll-hint.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .scroll-hint i {
+            font-size: 1.1rem;
+            animation: bounceDown 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(8px);
+            }
+            60% {
+                transform: translateY(4px);
+            }
+        }
+
+        .scroll-hint span {
+            white-space: nowrap;
+        }
+
+        /* Mobile optimization for scroll hint */
+        @media (max-width: 768px) {
+            .scroll-hint {
+                bottom: 80px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.8rem;
+                left: 20px;
+                right: 20px;
+                transform: translateY(20px);
+                max-width: calc(100vw - 40px);
+            }
+
+            .scroll-hint.show {
+                transform: translateY(0);
+            }
+
+            .scroll-hint span {
+                white-space: normal;
+                text-align: center;
+            }
+        }
+
+        /* Prevent scroll hint on very small screens */
+        @media (max-height: 600px) {
+            .scroll-hint {
+                display: none;
             }
         }
 
@@ -939,11 +1008,11 @@
         <h2 class="countdown-title">⚡ PROMO TERBATAS BERAKHIR DALAM:</h2>
         <div class="countdown-timer">
             <div class="countdown-item">
-                <span class="countdown-number" id="hours">23</span>
+                <span class="countdown-number" id="hours">07</span>
                 <span class="countdown-label">JAM</span>
             </div>
             <div class="countdown-item">
-                <span class="countdown-number" id="minutes">45</span>
+                <span class="countdown-number" id="minutes">46</span>
                 <span class="countdown-label">MENIT</span>
             </div>
             <div class="countdown-item">
@@ -1161,6 +1230,103 @@
             });
         }
 
+        // Auto-scroll hint system
+        let userInactiveTimer;
+        let lastScrollTime = Date.now();
+        let hasAutoScrolled = false;
+        let isUserScrolling = false;
+        
+        function resetInactivityTimer() {
+            clearTimeout(userInactiveTimer);
+            lastScrollTime = Date.now();
+            
+            // Only set timer if user hasn't scrolled much and we haven't auto-scrolled yet
+            if (window.scrollY < 200 && !hasAutoScrolled) {
+                userInactiveTimer = setTimeout(() => {
+                    if (!isUserScrolling && window.scrollY < 200) {
+                        showScrollHint();
+                    }
+                }, Math.random() * 2000 + 3000); // 3-5 seconds
+            }
+        }
+        
+        function showScrollHint() {
+            if (hasAutoScrolled || window.scrollY > 200) return;
+            
+            hasAutoScrolled = true;
+            isUserScrolling = false;
+            
+            // Add subtle scroll hint animation
+            const scrollHint = document.createElement('div');
+            scrollHint.className = 'scroll-hint';
+            scrollHint.innerHTML = '<i class="fas fa-chevron-down"></i><span>Lihat produk selengkapnya</span>';
+            document.body.appendChild(scrollHint);
+            
+            // Show hint first
+            setTimeout(() => {
+                scrollHint.classList.add('show');
+            }, 100);
+            
+            // Then start gentle auto-scroll
+            setTimeout(() => {
+                gentleAutoScroll();
+            }, 1500);
+            
+            // Remove hint after scroll
+            setTimeout(() => {
+                scrollHint.classList.remove('show');
+                setTimeout(() => {
+                    if (scrollHint.parentNode) {
+                        scrollHint.parentNode.removeChild(scrollHint);
+                    }
+                }, 500);
+            }, 4000);
+        }
+        
+        function gentleAutoScroll() {
+            const targetScroll = Math.min(window.innerHeight * 0.7, 500);
+            const startScroll = window.scrollY;
+            const scrollDistance = targetScroll - startScroll;
+            const duration = 2000; // 2 seconds for gentle scroll
+            const startTime = Date.now();
+            
+            function scrollStep() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function for smooth scroll
+                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                const currentScroll = startScroll + (scrollDistance * easeOutCubic);
+                
+                if (!isUserScrolling) {
+                    window.scrollTo(0, currentScroll);
+                }
+                
+                if (progress < 1 && !isUserScrolling) {
+                    requestAnimationFrame(scrollStep);
+                } else {
+                    // Reset after auto-scroll completes
+                    setTimeout(() => {
+                        hasAutoScrolled = false;
+                    }, 10000); // Allow another auto-scroll after 10 seconds
+                }
+            }
+            
+            requestAnimationFrame(scrollStep);
+        }
+        
+        // Track user interaction
+        function handleUserActivity() {
+            isUserScrolling = true;
+            resetInactivityTimer();
+            
+            // Reset user scrolling flag after a short delay
+            clearTimeout(window.userScrollTimeout);
+            window.userScrollTimeout = setTimeout(() => {
+                isUserScrolling = false;
+            }, 150);
+        }
+        
         // Initialize all functions
         function init() {
             updateCounters();
@@ -1179,6 +1345,18 @@
             // Scroll animations
             window.addEventListener('scroll', fadeInOnScroll);
             fadeInOnScroll(); // Initial check
+            
+            // Auto-scroll hint system
+            window.addEventListener('scroll', handleUserActivity, { passive: true });
+            window.addEventListener('wheel', handleUserActivity, { passive: true });
+            window.addEventListener('touchstart', handleUserActivity, { passive: true });
+            window.addEventListener('touchmove', handleUserActivity, { passive: true });
+            window.addEventListener('keydown', handleUserActivity);
+            window.addEventListener('mousedown', handleUserActivity);
+            window.addEventListener('click', handleUserActivity);
+            
+            // Start inactivity timer
+            resetInactivityTimer();
         }
 
         // Start when page loads
