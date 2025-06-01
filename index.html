@@ -1,1 +1,848 @@
-sddd
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puffy Winter Vest - Jaket Musim Dingin Premium</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="600" cy="700" r="120" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            color: #e8f4fd;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease-out 0.4s both;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2a5298;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem 0;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+        }
+
+        /* Countdown Timer */
+        .countdown-section {
+            background: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+        }
+
+        .countdown-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            background: linear-gradient(145deg, #2a5298, #1e3c72);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            min-width: 100px;
+            box-shadow: 0 10px 25px rgba(42,82,152,0.3);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f8fbff 0%, #e8f4fd 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #2a5298);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #2a5298);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Product Gallery */
+        .gallery {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #e8f4fd;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* Price Banner */
+        .price-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 -10px 30px rgba(255,107,107,0.3);
+        }
+
+        .price-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .price-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-original {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-current {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        /* Popup Notification */
+        .popup-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1000;
+            transform: translateX(-400px);
+            transition: all 0.5s ease;
+            max-width: 350px;
+        }
+
+        .popup-notification.show {
+            transform: translateX(0);
+        }
+
+        .popup-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .popup-content {
+            flex: 1;
+        }
+
+        .popup-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .popup-message {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        .popup-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .countdown-timer {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: 1rem;
+            }
+
+            .features-grid,
+            .gallery-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .popup-notification {
+                left: 10px;
+                right: 10px;
+                max-width: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Puffy Winter Vest</h1>
+                <p class="tagline">Jaket Musim Dingin Premium dengan Teknologi Insulasi Terdepan - Tetap Hangat & Stylish!</p>
+                
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-number" id="viewers">1,247</span>
+                        <span class="stat-label">Sedang Melihat</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stock">87</span>
+                        <span class="stat-label">Stok Tersisa</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">Rating ⭐</span>
+                    </div>
+                </div>
+
+                <a href="https://vera.orderonline.id/egh-puffy-winter-vest" class="cta-button pulse">
+                    <i class="fas fa-shopping-cart"></i> PESAN SEKARANG
+                </a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://cdn.orderonline.id/uploads/images_9448551730655318418.jpg" alt="Puffy Winter Vest">
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <h2 class="countdown-title">⚡ PROMO TERBATAS BERAKHIR DALAM:</h2>
+        <div class="countdown-timer">
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">23</span>
+                <span class="countdown-label">JAM</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">45</span>
+                <span class="countdown-label">MENIT</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">30</span>
+                <span class="countdown-label">DETIK</span>
+            </div>
+        </div>
+        <p style="color: #ff6b6b; font-weight: bold; font-size: 1.1rem;">
+            <i class="fas fa-fire"></i> Hanya tersisa <span id="stock-urgent">87</span> pcs lagi!
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Puffy Winter Vest?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="feature-title">Teknologi Insulasi Premium</h3>
+                    <p class="feature-description">Bahan insulasi berkualitas tinggi yang mampu menjaga suhu tubuh hingga -15°C dengan bobot yang ringan dan tidak membatasi gerakan.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Tahan Air & Angin</h3>
+                    <p class="feature-description">Material outer yang tahan air dan angin dengan sistem ventilasi yang tetap menjaga sirkulasi udara untuk kenyamanan maksimal.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Ultra Ringan & Fleksibel</h3>
+                    <p class="feature-description">Desain ergonomis yang sangat ringan namun tetap hangat, tidak mengganggu aktivitas harian dan mudah dilipat untuk travel.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="feature-title">Desain Premium & Stylish</h3>
+                    <p class="feature-description">Tampilan modern dan elegan yang cocok untuk berbagai acara, dari casual hingga semi-formal dengan pilihan warna yang trendy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Produk</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://cdn.orderonline.id/uploads/images_3888571738385791002.gif" alt="Puffy Winter Vest Animation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://cdn.orderonline.id/uploads/images_1423071730655205586.jpg" alt="Puffy Winter Vest Detail">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://cdn.orderonline.id/uploads/images_9694961730655205818.jpg" alt="Puffy Winter Vest Style">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://cdn.orderonline.id/uploads/images_8089361738385795641.jpg" alt="Model Wearing Vest">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://cdn.orderonline.id/uploads/images_9767651738385795583.jpg" alt="Model Fashion">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://cdn.orderonline.id/uploads/images_5662441738385795589.jpg" alt="Winter Style">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Testimoni Pelanggan</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Kualitas luar biasa! Benar-benar hangat tapi tetap stylish. Sudah pakai ke Bandung dan Dieng, tetap nyaman meski cuaca dingin banget. Recommended!"</p>
+                    <p class="testimonial-author">- Sari M., Jakarta</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Bahan premium banget, ringan tapi hangat. Cocok buat traveling ke daerah dingin. Desainnya juga bagus, tidak kelihatan kayak jaket biasa."</p>
+                    <p class="testimonial-author">- Rani K., Surabaya</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Worth it banget! Harga sebanding dengan kualitas. Sudah 6 bulan pakai masih bagus, tahan cuci juga. Puas banget dengan pembelian ini."</p>
+                    <p class="testimonial-author">- Doni P., Bandung</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Pengiriman cepat, packaging rapi. Jaketnya sesuai ekspektasi, bahkan lebih bagus dari foto. Tetap hangat saat naik gunung, highly recommended!"</p>
+                    <p class="testimonial-author">- Maya S., Yogyakarta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Banner -->
+    <section class="price-banner">
+        <div class="price-container">
+            <h2 class="price-title">🔥 PENAWARAN SPESIAL HARI INI!</h2>
+            <p class="price-original">Harga Normal: Rp 330.000</p>
+            <p class="price-current">Rp 220.000</p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">⚡ HEMAT Rp 110.000!</p>
+            <a href="https://vera.orderonline.id/egh-puffy-winter-vest" class="cta-button" style="background: white; color: #ff6b6b; font-size: 1.5rem; padding: 1.5rem 4rem;">
+                <i class="fas fa-bolt"></i> BELI SEKARANG
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                <i class="fas fa-truck"></i> FREE ONGKIR ke Seluruh Indonesia | 
+                <i class="fas fa-shield-check"></i> Garansi 30 Hari
+            </p>
+        </div>
+    </section>
+
+    <!-- Popup Notification -->
+    <div class="popup-notification" id="popup">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="popup-avatar" id="popup-avatar">
+        <div class="popup-content">
+            <div class="popup-name" id="popup-name">Sari dari Jakarta</div>
+            <div class="popup-message">Baru saja memesan Puffy Winter Vest</div>
+        </div>
+        <button class="popup-close" onclick="closePopup()">×</button>
+    </div>
+
+    <script>
+        // Dynamic Counters
+        function updateCounters() {
+            const viewers = document.getElementById('viewers');
+            const stock = document.getElementById('stock');
+            const stockUrgent = document.getElementById('stock-urgent');
+            
+            // Simulate dynamic viewers (1200-1300)
+            const currentViewers = Math.floor(Math.random() * 100) + 1200;
+            viewers.textContent = currentViewers.toLocaleString();
+            
+            // Simulate decreasing stock (80-90)
+            const currentStock = Math.floor(Math.random() * 10) + 80;
+            stock.textContent = currentStock;
+            stockUrgent.textContent = currentStock;
+        }
+
+        // Countdown Timer
+        function startCountdown() {
+            const countdownDate = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 hours from now
+            
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+                
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    // Reset countdown
+                    startCountdown();
+                }
+            }, 1000);
+        }
+
+        // Popup Notifications
+        const customers = [
+            { name: 'Sari dari Jakarta', avatar: 'https://randomuser.me/api/portraits/women/32.jpg' },
+            { name: 'Budi dari Surabaya', avatar: 'https://randomuser.me/api/portraits/men/25.jpg' },
+            { name: 'Rina dari Bandung', avatar: 'https://randomuser.me/api/portraits/women/44.jpg' },
+            { name: 'Ahmad dari Medan', avatar: 'https://randomuser.me/api/portraits/men/33.jpg' },
+            { name: 'Maya dari Yogyakarta', avatar: 'https://randomuser.me/api/portraits/women/28.jpg' },
+            { name: 'Doni dari Malang', avatar: 'https://randomuser.me/api/portraits/men/41.jpg' },
+            { name: 'Siska dari Denpasar', avatar: 'https://randomuser.me/api/portraits/women/36.jpg' },
+            { name: 'Rudi dari Semarang', avatar: 'https://randomuser.me/api/portraits/men/29.jpg' }
+        ];
+
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            const randomCustomer = customers[Math.floor(Math.random() * customers.length)];
+            
+            document.getElementById('popup-name').textContent = randomCustomer.name;
+            document.getElementById('popup-avatar').src = randomCustomer.avatar;
+            
+            popup.classList.add('show');
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 5000);
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+        }
+
+        // Fade in animation on scroll
+        function fadeInOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.animationDelay = Math.random() * 0.3 + 's';
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Initialize all functions
+        function init() {
+            updateCounters();
+            startCountdown();
+            
+            // Update counters every 30 seconds
+            setInterval(updateCounters, 30000);
+            
+            // Show popup every 10-15 seconds
+            setTimeout(showPopup, 3000);
+            setInterval(() => {
+                const delay = Math.random() * 10000 + 10000; // 10-20 seconds
+                setTimeout(showPopup, delay);
+            }, 20000);
+            
+            // Scroll animations
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Initial check
+        }
+
+        // Start when page loads
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add click tracking for CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Add any analytics tracking here if needed
+                console.log('CTA clicked:', this.href);
+            });
+        });
+
+        // Mobile touch swipe for popup
+        let startY = 0;
+        document.getElementById('popup').addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+        });
+
+        document.getElementById('popup').addEventListener('touchmove', function(e) {
+            let currentY = e.touches[0].clientY;
+            let diffY = startY - currentY;
+            
+            if (diffY > 50) { // Swipe up
+                closePopup();
+            }
+        });
+    </script>
+</body>
+</html>
